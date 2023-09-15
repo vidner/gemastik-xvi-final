@@ -1,0 +1,149 @@
+.verifyEmail {
+    grid-template-rows: min-content minmax(100vh, 1fr);
+    position: relative;
+}
+
+.verifyEmail__container {
+    display: grid;
+    grid-template-columns: 80vw;
+    grid-auto-rows: min-content;
+    justify-content: center;
+    align-self: center;
+    position: relative;
+}
+
+@media screen and (max-width: 28em) {
+    .verifyEmail__container {
+        grid-template-columns: 1fr;
+        padding: 8rem 3rem;
+    }
+}
+
+.verifyEmail__form-box {
+    display: grid;
+    grid-template-columns: 55% 1fr;
+    grid-auto-rows: min-content;
+    filter: drop-shadow(0px 0px 30px rgba(0, 0, 0, .15));
+}
+
+@media screen and (max-width: 28em) {
+    .verifyEmail__form-box {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+.verifyEmail__banner {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: min-content;
+    align-content: flex-end;
+    padding: 6rem 4rem;
+    background-image: linear-gradient(0, rgba(0,0,0,.4), rgba(0,0,0,.4)), url('../asset/login-banner.png');
+    background-size: cover;
+    background-position: center center;
+}
+
+@media screen and (max-width: 28em) {
+    .verifyEmail__banner {
+        padding: 4rem;
+    }
+}
+
+.verifyEmail__banner-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.verifyEmail__banner-detail img {
+    width: 9rem;
+}
+
+.verifyEmail__banner-title {
+    font-size: 3.2rem;
+    font-weight: 600;
+}
+
+.verifyEmail__banner-desc {
+    font-size: 1.4rem;
+    font-weight: 400;
+}
+
+@media screen and (max-width: 28em) {
+    .verifyEmail__banner-title {
+        font-size: 2.8rem;
+    }
+
+    .verifyEmail__banner-desc {
+        font-size: 1.2rem;
+    }
+}
+
+.verifyEmail__form {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: min-content;
+    align-content: space-between;
+    grid-gap: 6rem;
+    padding: 5rem;
+    background-color: #fff;
+}
+
+.verifyEmail__form-logo {
+    width: 4.2rem;
+}
+
+.verifyEmail__form-title {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--color-font-primary);
+}
+
+.verifyEmail__form-subtitle {
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: #656565;
+}
+
+.verifyEmail__form > div {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: min-content;
+    grid-gap: 3rem;
+}
+
+.verifyEmail__redirect {
+    justify-self: center;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #989898;
+}
+
+.verifyEmail__redirect a {
+    text-decoration: none;
+    color: var(--color-secondary);
+    font-weight: 600;
+}
+
+.verifyEmail__cta {
+    outline: none;
+    border: none;
+    margin-top: 10rem;
+    background-color: var(--color-secondary);
+    padding: 1rem 3rem;
+    border-radius: 4px;
+    font-family: var(--font-primary);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+}
+
+.verifyEmail-compliment {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 40rem;
+    z-index: -1;
+}

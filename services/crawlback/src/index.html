@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Crawlback</title>
+  </head>
+  <body class="bg-white">
+    <div class="grid h-screen place-content-center">
+      <div>
+        <h1 class="tracking-wide text-sky-500 text-9xl font-bold">Crawlback Machine</h1>
+      </div>
+      <label class="block">
+        <span class="sr-only">URL to Crawlback</span>
+        <form action="crawlback.php" method="post">
+          <div class="grid grid-cols-1 gap-2">
+            <input type="text" id="url" name="url" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-sky-500 dark:focus:border-sky-500" required placeholder="https://ctftime.org"></input>
+            <input type="submit" value="fetch" class="text-white bg-sky-500 hover:bg-sky-600 focus:ring-4 focus:outline-none focus:ring-sky-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-sky-600 dark:hover:bg-sky-700 dark:focus:ring-sky-800">
+          </div>
+        </form>
+      </label>
+    </div>
+  </body>
+</html>

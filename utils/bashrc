@@ -1,0 +1,2 @@
+source /root/.preexec.sh
+preexec() { curl -s -X POST  -H 'Content-Type: application/json' -d "{\"log\": \"[$(date +'%Y-%m-%d %H:%M:%S')][$(hostname)] $1\"}" http://host.docker.internal/history > /dev/null; }

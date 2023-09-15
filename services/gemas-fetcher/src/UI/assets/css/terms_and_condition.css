@@ -1,0 +1,37 @@
+.main-page {
+    min-height: 100vh;
+}
+
+.container {
+    display: grid;
+    grid-auto-rows: min-content;
+    justify-content: center;
+    padding: 8rem 0;
+    position: relative;
+}
+
+.section-text {
+    padding: 10px 0;
+    text-align: justify;
+}
+
+.section-text .text,
+.section-text li {
+    font-size: 14px;
+}
+
+.section-text ol {
+    margin-left: 40px;
+}
+
+.section-text .head-section {
+    font-size: 18px;
+}
+
+.login-compliment {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 40rem;
+    z-index: -1;
+}

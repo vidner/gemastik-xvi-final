@@ -1,0 +1,11 @@
+version: '3.1'
+
+services:
+  xl:
+    build:
+      context: .
+      args:
+        - PASSWORD=root
+    ports:
+      - "11000:3000"
+      - "11022:22"

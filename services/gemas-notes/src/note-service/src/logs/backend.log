@@ -1,0 +1,50 @@
+{"level":"info","msg":"[  ] POST /api/register insomnia/2023.3.0","time":"2023-09-07T03:21:34.032"}
+{"level":"info","msg":"[  ] POST /api/register insomnia/2023.3.0","time":"2023-09-07T03:23:53.730"}
+{"level":"info","msg":"[  ] POST /api/login insomnia/2023.3.0","time":"2023-09-07T03:24:18.329"}
+{"level":"info","msg":"[  ] POST /api/login insomnia/2023.3.0","time":"2023-09-07T03:25:14.577"}
+{"level":"info","msg":"[  ] POST /api/login insomnia/2023.3.0","time":"2023-09-07T03:26:51.703"}
+{"level":"info","msg":"[  ] POST /api/login insomnia/2023.3.0","time":"2023-09-07T03:29:46.715"}
+{"level":"info","msg":"[  ] POST /api/login insomnia/2023.3.0","time":"2023-09-07T03:33:38.244"}
+{"level":"info","msg":"[  ] POST /api/login insomnia/2023.3.0","time":"2023-09-07T03:38:06.990"}
+{"level":"info","msg":"[  ] POST /api/notes/count insomnia/2023.3.0","time":"2023-09-07T03:38:14.326"}
+{"level":"info","msg":"[  ] POST /api/notes/count insomnia/2023.3.0","time":"2023-09-07T03:38:30.889"}
+{"level":"info","msg":"[  ] POST /api/notes/count insomnia/2023.3.0","time":"2023-09-07T03:39:08.407"}
+{"level":"info","msg":"[  ] POST /api/notes/count insomnia/2023.3.0","time":"2023-09-07T03:39:19.161"}
+{"level":"info","msg":"[  ] POST /api/notes/count insomnia/2023.3.0","time":"2023-09-07T03:41:13.969"}
+{"level":"info","msg":"[  ] POST /api/notes/count insomnia/2023.3.0","time":"2023-09-07T03:41:18.505"}
+{"level":"info","msg":"[  ] POST /api/notes/count insomnia/2023.3.0","time":"2023-09-07T03:43:46.721"}
+{"level":"info","msg":"[  ] POST /api/notes/count insomnia/2023.3.0","time":"2023-09-07T03:43:50.920"}
+{"level":"info","msg":"[  ] POST /api/notes/count insomnia/2023.3.0","time":"2023-09-07T03:45:21.305"}
+{"level":"info","msg":"[  ] POST /api/notes/count insomnia/2023.3.0","time":"2023-09-07T03:45:22.683"}
+{"level":"info","msg":"[  ] POST /api/notes/count insomnia/2023.3.0","time":"2023-09-07T03:45:23.331"}
+{"level":"info","msg":"[  ] POST /api/login insomnia/2023.3.0","time":"2023-09-07T03:46:06.583"}
+{"level":"info","msg":"[  ] POST /api/notes/count insomnia/2023.3.0","time":"2023-09-07T03:46:19.184"}
+{"level":"info","msg":"[  ] POST /api/notes/count insomnia/2023.3.0","time":"2023-09-07T03:52:47.220"}
+{"level":"error","msg":"Key path not found","time":"2023-09-07T03:52:47.221"}
+{"level":"info","msg":"[  ] POST /api/login insomnia/2023.3.0","time":"2023-09-07T03:53:05.212"}
+{"level":"error","msg":"json: cannot unmarshal string into Go value of type usermodels.User","time":"2023-09-07T03:53:05.213"}
+{"level":"info","msg":"[  ] POST /api/login insomnia/2023.3.0","time":"2023-09-07T03:55:19.037"}
+{"level":"info","msg":"[  ] POST /api/notes/count insomnia/2023.3.0","time":"2023-09-07T03:55:26.126"}
+{"level":"info","msg":"[  ] POST /api/notes/count insomnia/2023.3.0","time":"2023-09-07T03:56:19.436"}
+{"level":"info","msg":"[  ] POST /api/notes/count insomnia/2023.3.0","time":"2023-09-07T03:57:22.835"}
+{"level":"info","msg":"[  ] POST /api/login insomnia/2023.3.0","time":"2023-09-07T03:58:13.509"}
+{"level":"info","msg":"[  ] POST /api/notes/count insomnia/2023.3.0","time":"2023-09-07T03:58:30.111"}
+{"level":"info","msg":"[  ] POST /api/notes/count insomnia/2023.3.0","time":"2023-09-07T03:59:00.225"}
+{"level":"info","msg":"[  ] POST /api/notes/count insomnia/2023.3.0","time":"2023-09-07T03:59:14.632"}
+{"level":"info","msg":"[  ] POST /api/notes/count insomnia/2023.3.0","time":"2023-09-07T03:59:20.361"}
+{"level":"error","msg":"Error 1054: Unknown column 'a' in 'field list'","time":"2023-09-07T03:59:20.368"}
+{"level":"info","msg":"[  ] POST /api/notes/count insomnia/2023.3.0","time":"2023-09-07T03:59:24.919"}
+{"level":"error","msg":"Error 1054: Unknown column 'b' in 'field list'","time":"2023-09-07T03:59:24.920"}
+{"level":"info","msg":"[  ] POST /api/notes/count insomnia/2023.3.0","time":"2023-09-07T03:59:40.476"}
+{"level":"error","msg":"sql: Scan error on column index 0, name \"count(*)\": converting driver.Value type []uint8 (\"a\") to a int: invalid syntax","time":"2023-09-07T03:59:40.481"}
+{"level":"info","msg":"[  ] POST /api/notes/count insomnia/2023.3.0","time":"2023-09-07T04:00:15.759"}
+{"level":"info","msg":"[  ] POST /api/notes/count insomnia/2023.3.0","time":"2023-09-07T04:00:20.578"}
+{"level":"info","msg":"[  ] POST /api/notes/count insomnia/2023.3.0","time":"2023-09-07T04:00:25.099"}
+{"level":"info","msg":"[  ] POST /api/login insomnia/2023.3.0","time":"2023-09-07T04:01:32.865"}
+{"level":"info","msg":"[  ] POST /api/notes/count insomnia/2023.3.0","time":"2023-09-07T04:01:40.792"}
+{"level":"info","msg":"[  ] POST /api/notes/count insomnia/2023.3.0","time":"2023-09-07T04:01:53.832"}
+{"level":"info","msg":"[  ] POST /api/notes/count insomnia/2023.3.0","time":"2023-09-07T04:10:12.009"}
+{"level":"info","msg":"[  ] POST /api/notes/count insomnia/2023.3.0","time":"2023-09-07T04:11:26.797"}
+{"level":"info","msg":"[  ] POST /api/notes/count insomnia/2023.3.0","time":"2023-09-07T04:12:18.201"}
+{"level":"info","msg":"[  ] POST /api/notes/count insomnia/2023.3.0","time":"2023-09-07T04:16:54.433"}
+{"level":"info","msg":"[ 127.0.0.1 ] POST /api/notes/count insomnia/2023.3.0","time":"2023-09-07T04:17:13.273"}

@@ -1,0 +1,15 @@
+{
+    "db": {
+        "type": "mysql",
+        "host": "database",
+        "port": 3306,
+        "username": "gemasnotesuser",
+        "password": "hAP[Vl1~4<?7@Sf1Xd",
+        "database": "gemasnotes"
+    },
+    "log": {
+        "logfile" : "logs/backend.log",
+        "format": "json",
+        "timestampformat": "2006-01-02T15:04:05.000"
+    }
+}

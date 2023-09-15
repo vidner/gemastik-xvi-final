@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  s3:
+    restart: always
+    container_name: s3
+    build:
+      context: ./
+      args:
+        - PASSWORD=PASSWORD_20000
+    ports:
+      - "20000:80"
+      - "20022:22"
+    volumes:
+      - ./flag.txt:/flag.txt:ro

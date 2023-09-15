@@ -1,0 +1,93 @@
+{%- extends "layout/base.html" -%}
+{%- block content -%}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 col-md-12" id="tasksContainer">
+            <div class="d-flex justify-content-end mb-3">
+                <button type="button" onclick="window.location.href='/dashboard/sample'" id="btnSample" class="btn btn-success text-white rounded-m"> Google.com </button>
+            </div>
+            <div class="card rounded-xl">
+                <div class="card-body">
+                    <form action="/dashboard/fetch_by_file" id="form_fetch" method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for=""> Upload your fetcher payload here ! </label>
+                            <input type="file" name="fetch_file" class="form-control">
+                        </div>
+                        <input type="button" onclick="fetchFile()" name="submit" class="btn btn-primary" value="Upload">
+                    </form>
+                </div>
+            </div>
+            <div class="card rounded-xl">
+                <div class="card-body">
+                    <h5 class="card-title"> Result </h5>
+                    <textarea id="result" class="form-control" rows="30" disabled style="resize: none; overflow-y: scroll;"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{%- endblock -%}
+{%- block css -%}
+<link href="/css/progressbar.css" rel="stylesheet">
+<link href="/css/owl.carousel.min.css" rel="stylesheet">
+<link href="/css/owl.theme.default.min.css" rel="stylesheet">
+<link href="/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
+<style>
+    .main_content_iner.overly_inner::before {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        height: 240px;
+        z-index: -1;
+        background: linear-gradient(91.25deg, #0178BC 0%, #00649D 100%);
+        content: '';
+        border-radius: 0;
+        left: 0;
+    }
+
+    .main_content_iner {
+        min-height: 68vh;
+        transition: .5s;
+        position: relative;
+        background: #f3f4f3;
+        margin: 0;
+        z-index: 22;
+        border-radius: 0;
+        padding: 30px;
+    }
+
+    .page-title,
+    .breadcrumb-item {
+        color: #fff !important;
+    }
+
+    .breadcrumb-item a {
+        color: #CDCDCD !important;
+    }
+
+    .card-header {
+        background: transparent;
+    }
+</style>
+{%- endblock -%}
+{%- block js -%}
+<script>
+    function fetchFile(){
+        var formData = new FormData($('#form_fetch')[0]);
+        formData.append('file', $('input[type=file]')[0].files[0]);
+
+        $.ajax({
+            type: "POST",
+            url: "/dashboard/fetch_by_file",
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function(s) {
+                $("#result").text(s);
+            }
+        });
+    }    
+</script>
+{%- endblock -%}

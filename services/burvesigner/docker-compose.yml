@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  burvesigner:
+    restart: always
+    container_name: burvesigner
+    build:
+      context: ./
+      args:
+        - PASSWORD=PASSWORD_14000
+    ports:
+      - "14000:80"
+      - "14022:22"
+    volumes:
+      - ./flag.txt:/flag.txt:ro
+      - ./priv.data:/priv.data:ro

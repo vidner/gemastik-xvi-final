@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="/libs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/stylev2.css">
+    <link rel="stylesheet" href="/css/login.css">
+    <link href="/libs/toastr/build/toastr.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/libs/sweetalert/sweetalert2.min.css">
+    <title>Login</title>
+    <style>
+        .swal2-html-container{
+            margin: 0;
+        }
+        .swal2-close{
+            font-size: 14px !important;
+            top: 10px;
+        }
+        .bg-red{
+            color: #fff;
+            background-color: #dc3545;
+            border-color: #dc3545;
+        }
+    </style>
+
+</head>
+<body>
+    <main class="login">
+        <div class="login__header">
+            <a href="#" target="_blank"><img src="/images/logo.png" alt="" class="login__header-logo"></a>
+        </div>
+        <div class="login__container">
+            <div class="login__form-box" data-aos="fade-up">
+                <div class="login__banner">
+                    <div class="login__banner-detail">
+                        <h1 class="login__banner-title">Gemas Fetcher</h1>
+                        <p class="login__banner-desc">
+                            Gemas Fetcher is tools for fetching any website fastest
+                        </p>
+                    </div>
+                </div>
+                
+                <form action="/auth/login"  method="post" class="login__form">
+                    <div>
+                        <img src="/images/logo.png" alt="" class="login__form-logo">
+                        <h1 class="login__form-title">Login here now!</h1>
+                        <div class="input-group">
+                            <label for="username">Username <span class="d-none float-end block-help"><i class="fa fa-info-circle text-danger" aria-hidden="true"></i> Must be username</span></label>
+                            <input type="text" id="username" name="username" placeholder="Type your username" autofocus autocomplete="off">
+                        </div>
+                        <div class="input-group">
+                            <label for="password">Password <span class="d-none float-end block-help"><i class="fa fa-info-circle text-danger" aria-hidden="true"></i>Must be filled</span></label>
+                            <input type="password" id="password" name="password" placeholder="Type your password" autocomplete="off">
+                        </div>
+                        <button class="login__cta" type="submit" id="sign-in">Sign In</button>
+                    </div>
+                    <p class="login__redirect">Don’t have an account? <a href="/auth/register">Sign up</a></p>
+                </form>
+            </div>
+            <img src="/images/v2/compliment.png" alt="" class="login-compliment">
+        </div>
+    </main>
+</body>
+</html>
+<script src="/libs/jquery/dist/jquery.min.js"></script>
+<script src="/libs/sweetalert/sweetalert2.min.js"></script>
+<script src="/js/custom-sweetalert.js"></script>
+
+<script src="/libs/toastr/toastr.js"></script>
+<script>
+    {% if bs_message('error', check=True) %}
+        {% for msg in bs_message('error') %}
+            errorSwal('{{ msg }}')
+        {% endfor %}
+    {% endif %}
+
+    {% if bs_message('success', check=True) %}
+        {% for msg in bs_message('success') %}
+            successSwal('{{ msg }}')
+        {% endfor %}
+    {% endif %}
+</script>

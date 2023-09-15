@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  hirnfick:
+    restart: always
+    container_name: hirnfick
+    build:
+      context: ./
+      args:
+        - PASSWORD=PASSWORD_15000
+    ports:
+      - "15000:8000"
+      - "15022:22"
+    volumes:
+      - ./flag.txt:/flag.txt:ro

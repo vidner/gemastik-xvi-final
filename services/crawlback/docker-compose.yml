@@ -1,0 +1,11 @@
+version: '3.1'
+
+services:
+  crawlback:
+    build:
+      context: .
+      args:
+        - PASSWORD=root
+    ports:
+      - "21000:80"
+      - "21022:22"

@@ -1,0 +1,233 @@
+version: '3.1'
+
+services:
+  # --- art ---
+  art:
+    hostname: art
+    restart: always
+    build:
+      context: art
+      args:
+        - PASSWORD=$PASSWORD_10000
+    volumes:
+      - ../receiver/flags/art.txt:/flag.txt:ro
+      - ../utils/bashrc:/root/.bashrc:ro
+      - ../utils/preexec.sh:/root/.preexec.sh:ro
+    ports:
+      - "10000:8080"
+      - "10022:22"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+  # --- art ---
+
+  # --- xl ---
+  xl:
+    hostname: xl
+    restart: always
+    build:
+      context: xl
+      args:
+        - PASSWORD=$PASSWORD_11000
+    volumes:
+      - ../receiver/flags/xl.txt:/flag.txt:ro
+      - ../utils/bashrc:/root/.bashrc:ro
+      - ../utils/preexec.sh:/root/.preexec.sh:ro
+    ports:
+      - "11000:3000"
+      - "11022:22"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+  # --- xl ---
+
+  # --- gemas-notes ---
+  database:
+    restart: always
+    image: public.ecr.aws/docker/library/mysql:8
+    container_name: gemas-database
+    environment: 
+      MYSQL_ROOT_PASSWORD: why_my_random_string_password_doesnot_working
+      MYSQL_DATABASE: gemasnotes
+    volumes:
+      - ./gemas-notes/src/db/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  gemas-notes:
+    hostname: gemas-notes
+    restart: always
+    container_name: gemas-notes
+    build:
+      context: ./gemas-notes/src/note-service
+      dockerfile: Dockerfile
+      args:
+        - PASSWORD=$PASSWORD_12000
+    depends_on:
+      - database
+      - validation-service
+    volumes:
+      - ../utils/bashrc:/root/.bashrc:ro
+      - ../utils/preexec.sh:/root/.preexec.sh:ro
+    ports:
+      - "12022:22"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+  
+  validation-service:
+    restart: always
+    container_name: validation-service
+    build:
+      context: ./gemas-notes/src/validation-service
+      dockerfile: Dockerfile
+    depends_on:
+      - database
+    ports:
+      - "12000:80"
+  # --- gemas-notes ---
+
+  # --- pasta ---
+  pasta:
+    hostname: pasta
+    restart: always
+    build:
+      context: pasta
+      args:
+        - PASSWORD=$PASSWORD_13000
+    volumes:
+      - ../utils/bashrc:/root/.bashrc:ro
+      - ../utils/preexec.sh:/root/.preexec.sh:ro
+      - ../receiver/flags/pasta.txt:/ctf/pasta/flag.txt:ro
+    ports:
+      - "13000:8000"
+      - "13022:22"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+  # --- pasta ---
+
+  # --- burvesigner ---
+  burvesigner:
+    hostname: burvesigner
+    restart: always
+    container_name: burvesigner
+    build:
+      context: ./burvesigner
+      args:
+        - PASSWORD=$PASSWORD_14000
+    ports:
+      - "14000:80"
+      - "14022:22"
+    volumes:
+      - ../utils/bashrc:/root/.bashrc:ro
+      - ../utils/preexec.sh:/root/.preexec.sh:ro
+      - ../receiver/flags/burvesigner.txt:/flag.txt:ro
+      - ../receiver/files/burvesigner.priv:/priv.data:ro
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+  # --- burvesigner ---
+
+  # --- gemas-fetcher ---
+  gemas-fetcher:
+    container_name: gemas-fetcher
+    hostname: gemas-fetcher
+    build: 
+      context: ./gemas-fetcher
+      dockerfile: Dockerfile
+      args:
+        - PASSWORD=$PASSWORD_16000
+    ports:
+      - "16000:8000"
+      - "16022:22"
+    environment:
+      - MONGO_URI=mongodb://ctf:asjdkjk23j1k3dsdn2h233j3jj@mongodb:27017/web_fetcher?authSource=admin
+      - APP_URI=http://0.0.0.0:16000
+    volumes:
+      - ../utils/bashrc:/root/.bashrc:ro
+      - ../utils/preexec.sh:/root/.preexec.sh:ro
+      - ../receiver/flags/gemas-fetcher.txt:/flag.txt:ro
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    depends_on:
+      - mongodb
+
+  mongodb:
+    container_name: mongodb_ctf
+    image: public.ecr.aws/docker/library/mongo:4.4
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=ctf
+      - MONGO_INITDB_ROOT_PASSWORD=asjdkjk23j1k3dsdn2h233j3jj
+      - MONGO_INITDB_DATABASE=web_fetcher
+  # --- gemas-fetcher ---
+
+  # --- s3 ---
+  s3:
+    hostname: s3
+    restart: always
+    container_name: s3
+    build:
+      context: ./s3
+      args:
+        - PASSWORD=$PASSWORD_20000
+    ports:
+      - "20000:80"
+      - "20022:22"
+    volumes:
+      - ../utils/bashrc:/root/.bashrc:ro
+      - ../utils/preexec.sh:/root/.preexec.sh:ro
+      - ../receiver/flags/s3.txt:/flag.txt:ro
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+  # --- s3 ---
+  
+  # --- crawlback ---
+  crawlback:
+    hostname: crawlback
+    restart: always
+    build:
+      context: crawlback
+      args:
+        - PASSWORD=$PASSWORD_21000
+    volumes:
+      - ../receiver/flags/crawlback.txt:/flag.txt:ro
+      - ../utils/bashrc:/root/.bashrc:ro
+      - ../utils/preexec.sh:/root/.preexec.sh:ro
+    ports:
+      - "21000:80"
+      - "21022:22"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+  # --- crawlback ---
+
+  # --- back-to-basic ---
+  back-to-basic:
+    hostname: back-to-basic
+    restart: always
+    build:
+      context: back-to-basic
+      args:
+        - PASSWORD=$PASSWORD_22000
+    volumes:
+      - ../receiver/flags/back-to-basic.txt:/flag.txt:ro
+      - ../utils/bashrc:/root/.bashrc:ro
+      - ../utils/preexec.sh:/root/.preexec.sh:ro
+    ports:
+      - "22000:8000"
+      - "22022:22"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+  # --- back-to-basic ---
+
+  # --- hirnfick ---
+  hirnfick:
+    hostname: hirnfick
+    restart: always
+    build:
+      context: hirnfick
+      args:
+        - PASSWORD=$PASSWORD_15000
+    volumes:
+      - ../receiver/flags/hirnfick.txt:/flag.txt:ro
+      - ../utils/bashrc:/root/.bashrc:ro
+      - ../utils/preexec.sh:/root/.preexec.sh:ro
+    ports:
+      - "15000:8000"
+      - "15022:22"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+  # --- hirnfick ---

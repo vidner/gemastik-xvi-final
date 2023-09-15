@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BurveSigner</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <link
+      rel="shortcut icon"
+      href="{{ url_for('static', filename='favicon.ico') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>🅱️urveSigner</h1>
+      {% if data %}
+      <p>{{ data }}</p>
+      <a onclick="logout()" href="/">Logout</a>
+      {% else %}
+      <form action="/" method="post">
+        <input
+          type="text"
+          name="username"
+          placeholder="Username"
+          autofocus
+          required
+        />
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          required
+        />
+        <input type="submit" value="Login" />
+      </form>
+      {% endif %}
+    </div>
+    {% with messages = get_flashed_messages() %} {% if messages %}
+    <ul id="flashes">
+      {% for message in messages %}
+      <li>{{ message }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %} {% endwith %}
+  </body>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</html>
