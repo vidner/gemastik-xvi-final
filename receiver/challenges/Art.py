@@ -38,12 +38,3 @@ class Art(Challenge):
         except Exception as e:
             self.logger.error(f'Could not check art: {e}')
             return False
-
-    def generate_mock_file(self):
-        memory_file = io.BytesIO()
-        
-        df = pd.DataFrame(MOCK_DATA)
-        df.to_excel(memory_file, index=False)
-        
-        memory_file.seek(0)
-        return memory_file
